@@ -1,5 +1,5 @@
 name: Kernel Build
-*
+
 on:
   workflow_dispatch:
 
@@ -12,7 +12,7 @@ jobs:
 
     - name: Set up MemKernel as a module (M-OUT) with specified name
       run: |
-        curl -LSs "https://raw.githubusercontent.com/kuronami69/MemKernel/main/kernel/setup.sh" | bash -s M
+        curl -LSs "https://raw.githubusercontent.com/aiichi/MemKernel/main/kernel/setup.sh" | bash -s M dogi
 
     - name: Android kernel build
       uses: lemniskett/android-kernel-actions@master
@@ -22,7 +22,7 @@ jobs:
       with:
         arch: arm64
         compiler: gcc/12
-        defconfig: your_defconfig
+        defconfig: oppo6785_defconfig
         image: Image.gz-dtb
 
     - name: Upload Kernel and Module
@@ -32,4 +32,3 @@ jobs:
         path: |
           ${{ steps.build.outputs.outfile }}
           ./out/drivers/memkernel/memkernel.ko
-          
