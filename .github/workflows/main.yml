@@ -21,7 +21,7 @@ jobs:
         NAME: Loganysl
       with:
         arch: arm64
-        compiler: proton-clang/master
+        compiler: clang/15
         defconfig: oppo6785_defconfig
         image: Image.gz-dtb
 
